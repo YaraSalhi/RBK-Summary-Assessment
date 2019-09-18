@@ -59,7 +59,13 @@ function reduce(array, f, acc) {
 //wordLengths("hello its me") // [5,3,2]
 
 function wordLengths(str) {
-    // TODO: your code here 
+    var newStr=[];
+    var result=[];
+  newStr.push(str.split(' '));
+    each(newStr,function(element,i){
+      result.push(element.length)
+    })
+    return result;;
 }
 
 //=============================================================================
@@ -72,7 +78,12 @@ function wordLengths(str) {
 // countOccurrences("hello, world!", "l"); // 3
 
 function countOccurrences(string, character) {
-    // your code is here
+  var count=0;
+    return each(string,function(element,i){
+      if(element===character)
+        count++
+    })
+    return count;
 }
 
 //=============================================================================
@@ -84,7 +95,9 @@ function countOccurrences(string, character) {
 // wordsLongerThanThree("Hello Mad World") //["Hello", "World"]
 
 function wordsLongerThanThree(str) {
-    // TODO: your code here 
+    return reduce(str,function(result,element){
+      return (element.length > 3 && result );
+    },true)
 }
 
 //=============================================================================
@@ -99,7 +112,10 @@ function wordsLongerThanThree(str) {
 //repeatString('dog', 3); // => 'dog' + 'dog' + 'dog' => 'dogdogdog'
 
 function repeatString(str, count) { 
- // TODO: your code here 
+ if(count>=str.length){
+  return "";
+ }
+ return str + repeatString(str,count-1)
 } 
  
 
@@ -129,6 +145,38 @@ function repeatString(str, count) {
 // pizza.eatSlice();
 
 // Write your code here .....
+function makePizza(property,size,numberOfSlice){
+  var property=property;
+  var size=size;
+  var numberOfSlice=numberOfSlice
+  var ingredient=ingredient;
+
+  return {
+    addIngredients:function(ingredient){
+      return makePizza.ingredient
+
+    },
+    displayIngredients:function(){
+      var str="";
+      return "The ingredients are " + makePizza.ingredient
+    },
+    bakePizza:function(){
+      return "Your" +  makePizza.propert + ""+ makePizza.size + " " + makePizza.numberOfSlice + " " + "pizza is done"
+    },
+    eatSlice:function(numberOfSlice){
+      if(numberOfSlice>0){
+        return " you can eat another slice"
+        numberOfSlice--;
+
+      }
+    }
+
+
+
+
+  }
+
+}
 
 //=============================================================================
 /*                                  Q6                                      */
@@ -155,6 +203,46 @@ d- Decrement the number of "unread" books
 // Now, to make sure that you are actually reading, make a comment below this and type: Yes I am
 
 // Write your code here .....
+function ReadingList(){
+  var new={};
+  var toReadArray=[];
+  ReadingList.read=read;
+  ReadingList.unread=unread;
+  ReadingList.toRead=toRead;
+  ReadingList.currentRead=currentRead;
+  ReadingList.readBooks=readBooks;
+  ReadingList.AddBook=AddBook;
+
+  return new;
+
+}
+var read=function(n){
+  return this.read;
+}
+var unRead=function(n){
+return this.unread;
+}
+var toRead=function(array){
+  return array.push(this.toRead)
+
+}
+var currentRead=function(name){
+  this.name
+}
+var readBooks=function(name){
+  this.name
+}
+var AddBook=function(name){
+  toReadArray.push(this.name);
+  this.unRead++;
+}
+var finishCurrentBook=function(){
+  readBooks.push(this.currentRead)
+  this.read++;
+  toReadArray[0]=this.currentRead
+  this.unread--;
+
+}
 
 //=============================================================================
 /*                                  Q7                                       */
@@ -175,6 +263,37 @@ d- Decrement the number of "unread" books
 //  safe('money','small') => "watch gold-bar money"
 
 // Write your code here .....
+function makeSafe(size) {
+  var size=initial;
+  var counter=0;
+  var array=[];
+
+  return function addItem (item,itemSize) {
+    if(counter > size){
+      return "Can't fit"
+    }
+
+  if(itemSize === 1){
+    counter+!;
+      array.push(item);
+
+  }
+  if(itemSize===2){
+    counter+2;
+        array.push(item);
+
+  }
+  if(itemSize===3){
+    counter+3;
+      array.push(item);
+
+  }
+  return array;
+    
+    }
+
+  }
+
 
 //=============================================================================
 /*                                  Q8                                       */
@@ -216,12 +335,18 @@ d- Decrement the number of "unread" books
 //================================================================================
 // Theoretical questions.
 // 1- In your own words,Why do we use Closures ?
+in order to have mpre privacy and security over some functions that we need to keep their invocations thorugh out the 
+program like bank account since the variables are changable 
 
 // 2- In OOP, what does "this" refer to ?
+to the function at the left of the dot which is called focal function
 
 // 3- What is jQuery?
+a library that has builr in functions that can be used to reduce the amount of repetition and writing programmes and commands from the scratch using js, and it totally depends on js
 
 // 4- what is the diffrence between Closure's methods and The OOP's methods?
+oop uses classes which are objects and reduces the amount of repition since to produces some kind of blue print that allows us to call the function as many times as we want without taking so much space from the memory
+, closures are a way to access global variables without having to break the rules since it allows us to create persistent variables
 
 
 
